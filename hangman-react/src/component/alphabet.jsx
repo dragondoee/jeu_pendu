@@ -1,24 +1,14 @@
-
-export function Alphabet({letter, setLetter, tabLetters, setTabLetters}) {
-    const letters = "abcdefghijklmnopqrstuvwxyz".split("");
-    const handleChange=(e)=>{
-        setLetter(e.target.innerHTML)
-        setTabLetters([...tabLetters, e.target.innerHTML])
-        console.log(e.target.innerHTML)
-        console.log(tabLetters) 
-        }
+export function Alphabet({ tabLetters, onLetterSelect }) {
+    const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  
     return (
-        <div>
-            {letters.map((letterBut, index) => {
-                if(tabLetters.includes(letterBut)){
-                    console.log("disabled")
-                    return <button key={index} disabled> {letterBut} </button>
-                } else {
-                    return <button key={index} onClick={handleChange}> {letterBut} </button>
-                }
-            }
-                
-            )}
-        </div>
-    )
-}
+      <div>
+        {letters.map((letter, index) => (
+          <button key={index} onClick={() => onLetterSelect(letter)} disabled={tabLetters.includes(letter)}>
+            {letter}
+          </button>
+        ))}
+      </div>
+    );
+  }
+  
