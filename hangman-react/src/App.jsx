@@ -39,7 +39,7 @@ const App = () => {
       <h2>Nombre d'erreurs : {errors}/11</h2>
       <img src={`/${errors}.png`} alt={`Pendu ${errors}`} style={{ maxWidth: '200px' }} />
 
-      {win && <h2 className='life'>🎉 Félicitations, vous avez survécu ! 🎉</h2>}
+      {win && <h2 className='alive'>🎉 Félicitations, vous avez survécu ! 🎉</h2>}
       {gameOver && <h2 className='dead'>💀 Vous êtes mort ! Le mot était : {word} 💀</h2>}
 
       {(win || gameOver) && <button onClick={resetGame}>🔄 Recommencer</button>}
